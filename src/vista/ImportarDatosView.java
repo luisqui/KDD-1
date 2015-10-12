@@ -96,4 +96,9 @@ public class ImportarDatosView extends JFrame{
 		scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());		
 	}
 	
+	public void habilitarOpciones(boolean opcion){
+	   	btnCrearTablas.setEnabled(opcion);
+	   	btnImportarDatos.setEnabled(opcion);
+	}
+	
 }

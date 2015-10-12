@@ -67,7 +67,7 @@ public class Controlador implements ActionListener {
         new Thread(new Runnable(){
             @Override
             public void run() {
-            	habilitarOpciones(false);
+            	oImportarDatosView.habilitarOpciones(false);
             	oConexion = new conexion();
 				oImportarDAO = new ImportarDAO(oConexion);
 				
@@ -81,7 +81,7 @@ public class Controlador implements ActionListener {
 				oImportarDatosView.setTextAreaConsole("Operación completada.");
 				oValidarConfig.setImportado("true");
 				oValidarConfig.escribirConfig();
-				habilitarOpciones(true);
+				oImportarDatosView.habilitarOpciones(true);
             }}).start();
     }
     
@@ -90,7 +90,7 @@ public class Controlador implements ActionListener {
     	 new Thread(new Runnable(){
              @Override
              public void run() {
-            	habilitarOpciones(false);
+            	oImportarDatosView.habilitarOpciones(false);
             	oConexion = new conexion();
  				oImportarDAO = new ImportarDAO(oConexion);
  				
@@ -100,15 +100,10 @@ public class Controlador implements ActionListener {
  				oImportarDatosView.setTextAreaConsole("Operación completada.");
  				oValidarConfig.setCreado("true");
  				oValidarConfig.escribirConfig(); 
- 				habilitarOpciones(true);
+ 				oImportarDatosView.habilitarOpciones(true);
              }}).start();
     }
     
-    private void habilitarOpciones(boolean opcion){
-    	oImportarDatosView.getBtnCrearTablas().setEnabled(opcion);
-    	oImportarDatosView.getBtnImportarDatos().setEnabled(opcion);
-    }
-	
-	
+  	
 	
 }
