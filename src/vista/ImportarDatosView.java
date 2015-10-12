@@ -9,16 +9,19 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
-public class ImportarDatosView extends JFrame implements Runnable {
+public class ImportarDatosView extends JFrame{
 	private JButton btnCrearTablas;
 	private JButton btnImportarDatos;
 	private JTextArea textAreaConsole;
+	private JScrollPane scrollPane;
 
 
 	public ImportarDatosView() {
 		setTitle("AdventureWorks - Import");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 314, 344);
+		setResizable(false);
+		
 		JPanel contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,7 +53,7 @@ public class ImportarDatosView extends JFrame implements Runnable {
 		textAreaConsole.setEditable(false);
 		textAreaConsole.setText("Console");
 		
-		JScrollPane scrollPane = new JScrollPane(textAreaConsole);
+		scrollPane = new JScrollPane(textAreaConsole);
 		scrollPane.setBounds(10, 216, 278, 79);
 		contentPane.add(scrollPane);
 		
@@ -84,17 +87,11 @@ public class ImportarDatosView extends JFrame implements Runnable {
 
 
 	public void setTextAreaConsole(String accion) {		
-		String nuevo = textAreaConsole.getText() + "\n" + accion;
+		String nuevo = textAreaConsole.getText() + "\n" + accion;		
 		textAreaConsole.setText(nuevo);
+		scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
 	}
 
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		System.out.println("Imprime");
-	}
-	
-	
 	
 }

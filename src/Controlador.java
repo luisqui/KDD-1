@@ -36,18 +36,8 @@ public class Controlador implements ActionListener {
 		
 		if(e.getSource() == oImportarDatosView.getBtnCrearTablas()){//Evento para crear Tablas
 			
-			if(!oValidarConfig.isCreado()){
-				
-				oConexion = new conexion();
-				oImportarDAO = new ImportarDAO(oConexion);
-				
-				String queryCrearTablas = oModelamiento.queryCrearTablas();
-				oImportarDatosView.setTextAreaConsole("Creando Tablas.");
-				oImportarDAO.executeQuery(queryCrearTablas);
-				oImportarDatosView.setTextAreaConsole("Operación completada.");
-				oValidarConfig.setCreado("true");
-				oValidarConfig.escribirConfig();
-				
+			if(!oValidarConfig.isCreado()){ //Verifica que las tablas no esten creadas
+				crearTablas();								
 			}else{
 				JOptionPane.showMessageDialog(null, "Las tablas ya han sido creadas.");
 			}
@@ -58,20 +48,8 @@ public class Controlador implements ActionListener {
 			
 			if(oValidarConfig.isCreado()){ //Verifica que el DW este creado para importar
 				
-				if(!oValidarConfig.isImportado()){
-					oConexion = new conexion();
-					oImportarDAO = new ImportarDAO(oConexion);
-					
-					ArrayList<String> listaImportar = oModelamiento.generarRutaImportar();
-					ArrayList<String> listaMsg = oModelamiento.generarNombres();
-					for(int i=0; i<listaImportar.size(); i++){
-						//System.out.println("Importando: "+listaMsg.get(i)+"...");
-						oImportarDatosView.setTextAreaConsole("Importando: "+listaMsg.get(i)+"...");				
-						oImportarDAO.executeQuery(listaImportar.get(i));
-					}
-					oImportarDatosView.setTextAreaConsole("Operación completada.");
-					oValidarConfig.setImportado("true");
-					oValidarConfig.escribirConfig();
+				if(!oValidarConfig.isImportado()){//Verifica que el DW no este importado
+					importarDatos();					
 				}else{
 					JOptionPane.showMessageDialog(null, "Los datos ya han sido importados.");
 				}
@@ -80,5 +58,55 @@ public class Controlador implements ActionListener {
 			}
 		}
 	}
+	
+	
+    private void importarDatos() {
+        
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+            	habilitarOpciones(false);
+            	oConexion = new conexion();
+				oImportarDAO = new ImportarDAO(oConexion);
+				
+				ArrayList<String> listaMsg = oModelamiento.generarNombres();
+				ArrayList<String> listaImportar = oModelamiento.generarRutaImportar(listaMsg);				
+				for(int i=0; i<listaImportar.size(); i++){
+					String tabla = listaMsg.get(i);
+					oImportarDatosView.setTextAreaConsole("Importando: "+tabla+"...");												
+					oImportarDAO.executeQuery(listaImportar.get(i));
+				}
+				oImportarDatosView.setTextAreaConsole("Operación completada.");
+				oValidarConfig.setImportado("true");
+				oValidarConfig.escribirConfig();
+				habilitarOpciones(true);
+            }}).start();
+    }
+    
+    
+    private void crearTablas(){
+    	 new Thread(new Runnable(){
+             @Override
+             public void run() {
+            	habilitarOpciones(false);
+            	oConexion = new conexion();
+ 				oImportarDAO = new ImportarDAO(oConexion);
+ 				
+ 				String queryCrearTablas = oModelamiento.queryCrearTablas();
+ 				oImportarDatosView.setTextAreaConsole("Creando Tablas.");
+ 				oImportarDAO.executeQuery(queryCrearTablas);
+ 				oImportarDatosView.setTextAreaConsole("Operación completada.");
+ 				oValidarConfig.setCreado("true");
+ 				oValidarConfig.escribirConfig(); 
+ 				habilitarOpciones(true);
+             }}).start();
+    }
+    
+    private void habilitarOpciones(boolean opcion){
+    	oImportarDatosView.getBtnCrearTablas().setEnabled(opcion);
+    	oImportarDatosView.getBtnImportarDatos().setEnabled(opcion);
+    }
+	
+	
 	
 }
