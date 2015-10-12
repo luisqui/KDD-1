@@ -13,7 +13,7 @@ public class Modelamiento {
 	
 	public ArrayList<String> generarNombres(){
 		ArrayList<String> dir = new ArrayList<String>();
-<<<<<<< HEAD
+
 		
 		String cadena;
         String query="";
@@ -42,44 +42,9 @@ public class Modelamiento {
         return dir;	
 	}
 	
-	
-	public ArrayList<String> generarRutaImportar(ArrayList<String> dir){		
-=======
-		dir.add("DimAccount");
-		dir.add("DimCurrency");
-		dir.add("DimSalesTerritory");
-		dir.add("DimGeography");
-		dir.add("DimCustomer");
-		dir.add("DimDate");
-		dir.add("DimDepartmentGroup");
-		dir.add("DimEmployee");		
-		dir.add("DimOrganization");
-		dir.add("DimProductCategory");	
-		dir.add("DimProductSubcategory");
-		dir.add("DimProduct");			
-		dir.add("DimPromotion");
-		dir.add("DimReseller");
-		dir.add("DimSalesReason");		
-		dir.add("DimScenario");
-		dir.add("FactAdditionalInternationalProductDescription");
-		dir.add("FactCallCenter");
-		dir.add("FactCurrencyRate");
-		dir.add("FactFinance");
-		dir.add("FactInternetSales");
-		dir.add("FactInternetSalesReason");
-		dir.add("FactProductInventory");
-		dir.add("FactResellerSales");
-		dir.add("FactSalesQuota");
-		dir.add("FactSurveyResponse");
-		dir.add("NewFactCurrencyRate");
-		dir.add("ProspectiveBuyer");
 		
-		return dir;
-	}
-	
-	public ArrayList<String> generarRutaImportar(){
-		ArrayList<String> dir = generarNombres();
->>>>>>> 78357ee4b8ff51dd31850fd42d5dee9f15b8afbd
+	public ArrayList<String> generarRutaImportar(ArrayList<String> dir){
+		
 		ArrayList<String> listaImportar = new ArrayList<String>();		
 		String strImport;
 		

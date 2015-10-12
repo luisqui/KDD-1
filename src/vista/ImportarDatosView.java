@@ -9,29 +9,21 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
-<<<<<<< HEAD
+
 public class ImportarDatosView extends JFrame{
 	private JButton btnCrearTablas;
 	private JButton btnImportarDatos;
 	private JTextArea textAreaConsole;
 	private JScrollPane scrollPane;
-=======
-public class ImportarDatosView extends JFrame implements Runnable {
-	private JButton btnCrearTablas;
-	private JButton btnImportarDatos;
-	private JTextArea textAreaConsole;
->>>>>>> 78357ee4b8ff51dd31850fd42d5dee9f15b8afbd
 
 
 	public ImportarDatosView() {
 		setTitle("AdventureWorks - Import");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 314, 344);
-<<<<<<< HEAD
 		setResizable(false);
 		
-=======
->>>>>>> 78357ee4b8ff51dd31850fd42d5dee9f15b8afbd
+
 		JPanel contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,11 +55,8 @@ public class ImportarDatosView extends JFrame implements Runnable {
 		textAreaConsole.setEditable(false);
 		textAreaConsole.setText("Console");
 		
-<<<<<<< HEAD
+
 		scrollPane = new JScrollPane(textAreaConsole);
-=======
-		JScrollPane scrollPane = new JScrollPane(textAreaConsole);
->>>>>>> 78357ee4b8ff51dd31850fd42d5dee9f15b8afbd
 		scrollPane.setBounds(10, 216, 278, 79);
 		contentPane.add(scrollPane);
 		
@@ -101,26 +90,10 @@ public class ImportarDatosView extends JFrame implements Runnable {
 
 
 	public void setTextAreaConsole(String accion) {		
-<<<<<<< HEAD
+
 		String nuevo = textAreaConsole.getText() + "\n" + accion;		
 		textAreaConsole.setText(nuevo);
-		scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
+		scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());		
 	}
-
-
-=======
-		String nuevo = textAreaConsole.getText() + "\n" + accion;
-		textAreaConsole.setText(nuevo);
-	}
-
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		System.out.println("Imprime");
-	}
-	
-	
->>>>>>> 78357ee4b8ff51dd31850fd42d5dee9f15b8afbd
 	
 }
