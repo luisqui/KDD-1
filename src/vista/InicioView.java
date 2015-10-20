@@ -10,17 +10,18 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
-public class ImportarDatosView extends JFrame{
+public class InicioView extends JFrame{
 	private JButton btnCrearTablas;
 	private JButton btnImportarDatos;
 	private JTextArea textAreaConsole;
 	private JScrollPane scrollPane;
+	private JButton btnReportes;
 
 
-	public ImportarDatosView() {
+	public InicioView() {
 		setTitle("AdventureWorks - Import");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 314, 344);
+		setBounds(100, 100, 305, 358);
 		setResizable(false);
 		
 
@@ -33,7 +34,7 @@ public class ImportarDatosView extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(224, 96, 97));
 		
-		panel.setBounds(0, 0, 298, 55);
+		panel.setBounds(0, 0, 299, 55);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -57,8 +58,12 @@ public class ImportarDatosView extends JFrame{
 		
 
 		scrollPane = new JScrollPane(textAreaConsole);
-		scrollPane.setBounds(10, 216, 278, 79);
+		scrollPane.setBounds(10, 230, 278, 79);
 		contentPane.add(scrollPane);
+		
+		btnReportes = new JButton("GENERAR REPORTES");
+		btnReportes.setBounds(10, 181, 278, 38);
+		contentPane.add(btnReportes);
 		
 		setVisible(true);		
 	}
@@ -81,6 +86,10 @@ public class ImportarDatosView extends JFrame{
 
 	public void setBtnImportarDatos(JButton btnImportarDatos) {
 		this.btnImportarDatos = btnImportarDatos;
+	}
+
+	public JButton getBtnReportes() {
+		return btnReportes;
 	}
 
 

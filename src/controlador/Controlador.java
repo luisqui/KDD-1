@@ -10,25 +10,28 @@ import modelo.DAO.importarDAO.ImportarDAO;
 import modelo.conexion.conexion;
 import modelo.modelamiento.Modelamiento;
 import modelo.validar.ValidarConf;
-import vista.ImportarDatosView;
+import vista.InicioView;
 
 public class Controlador implements ActionListener {
-	private ImportarDatosView oImportarDatosView;
+	private InicioView oImportarDatosView;
 	private conexion oConexion;
 	private ImportarDAO oImportarDAO;
 	private Modelamiento oModelamiento;
 	private ValidarConf oValidarConfig;
+	private ControladorReportes oControladorReportes;
 	
 	public Controlador(){
-		oImportarDatosView = new ImportarDatosView();
+		oImportarDatosView = new InicioView();
 		oImportarDatosView.getBtnCrearTablas().addActionListener(this);
 		oImportarDatosView.getBtnImportarDatos().addActionListener(this);
+		oImportarDatosView.getBtnReportes().addActionListener(this);
 		
 		oModelamiento = new Modelamiento();
 		
 		oValidarConfig = new ValidarConf();
 		
 		oValidarConfig.leerConfig();
+		
 	}
 
 
@@ -59,6 +62,13 @@ public class Controlador implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Aun no existen tablas para importar los datos.");
 			}
 		}
+	
+	
+///************************************************************************************************************		
+		else if(e.getSource() == oImportarDatosView.getBtnReportes()){//Evento para importar datos
+			oControladorReportes = new ControladorReportes();
+			oImportarDatosView.dispose();
+		}	
 	}
 	
 	
