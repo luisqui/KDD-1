@@ -13,7 +13,7 @@ public class Pregunta3 extends JPanel {
 	public Pregunta3() {
 		setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Mi boton");
 		btnNewButton.setBounds(245, 137, 89, 23);
 		add(btnNewButton);
 		
