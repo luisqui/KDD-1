@@ -84,13 +84,13 @@ public class Modelamiento {
 	  }
 	
 	
-	public String queryCrearTablas(){
+	public String cargarQuery(String ruta){
         String cadena;
         String query="";
         FileReader f = null;
         BufferedReader b = null;
         try{
-	        f = new FileReader("Resources/BackupNew.sql");
+	        f = new FileReader(ruta);
 	        b = new BufferedReader(f);
 	        while((cadena = b.readLine())!=null) {	            
 	        	query += "\n"+ cadena;
@@ -110,6 +110,28 @@ public class Modelamiento {
         
         return query;		
     }
+	
+	
+	public int ordenarFecha(String anho, String mes, String dia){
+		int resultado;
+		
+		anho = anho.replaceAll("\\s","");
+		mes = mes.replaceAll("\\s","");
+		dia = dia.replaceAll("\\s","");
+		
+		if(dia.length() == 1){
+			dia = 0+dia;
+		}
+		
+		if(mes.length() == 1){
+			mes = 0+mes;
+		}
+		
+		return Integer.valueOf(anho+mes+dia);
+	}
+	
+	
+	
 	
 	
 }

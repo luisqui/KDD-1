@@ -1,4 +1,4 @@
-SELECT cons."SpanishPromotionName", COUNT(cons."SpanishProductName") FROM
+SELECT cons."SpanishPromotionName" AS promocion, COUNT(cons."SpanishProductName") FROM
 (SELECT pro."SpanishProductName", p."SpanishPromotionName", f."ShipDateKey"
 FROM "DimProduct" AS pro INNER JOIN "FactInternetSales" AS f 
 ON pro."ProductKey" = f."ProductKey"

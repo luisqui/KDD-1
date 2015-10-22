@@ -6,14 +6,16 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class Pregunta1 extends JPanel {
 	private JTextField txtAInicial;
-	private JTextField txtMInicial;
-	private JTextField txtDInicial;
 	private JTextField txtAFinal;
-	private JTextField txtMFinal;
-	private JTextField txtDFinal;
+	private JSpinner txtMInicial;
+	private JSpinner txtMFinal;
+	private JSpinner txtDInicial;
+	private JSpinner txtDFinal;
 
 	/**
 	 * Create the panel.
@@ -51,19 +53,9 @@ public class Pregunta1 extends JPanel {
 		lblNewLabel_3.setBounds(238, 24, 58, 14);
 		panel.add(lblNewLabel_3);
 		
-		txtMInicial = new JTextField();
-		txtMInicial.setBounds(299, 22, 34, 20);
-		panel.add(txtMInicial);
-		txtMInicial.setColumns(10);
-		
 		JLabel lblNewLabel_4 = new JLabel("Dia (DD)");
 		lblNewLabel_4.setBounds(339, 25, 46, 14);
 		panel.add(lblNewLabel_4);
-		
-		txtDInicial = new JTextField();
-		txtDInicial.setBounds(386, 22, 34, 20);
-		panel.add(txtDInicial);
-		txtDInicial.setColumns(10);
 		
 		txtAFinal = new JTextField();
 		txtAFinal.setColumns(10);
@@ -78,19 +70,55 @@ public class Pregunta1 extends JPanel {
 		label_1.setBounds(238, 52, 58, 14);
 		panel.add(label_1);
 		
-		txtMFinal = new JTextField();
-		txtMFinal.setColumns(10);
-		txtMFinal.setBounds(298, 48, 34, 20);
-		panel.add(txtMFinal);
-		
 		JLabel label_2 = new JLabel("Dia (DD)");
 		label_2.setBounds(338, 51, 46, 14);
 		panel.add(label_2);
 		
-		txtDFinal = new JTextField();
-		txtDFinal.setColumns(10);
-		txtDFinal.setBounds(385, 48, 34, 20);
+		txtMInicial = new JSpinner();
+		txtMInicial.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		txtMInicial.setBounds(298, 21, 34, 20);
+		panel.add(txtMInicial);
+		
+		txtMFinal = new JSpinner();
+		txtMFinal.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		txtMFinal.setBounds(298, 49, 34, 20);
+		panel.add(txtMFinal);
+		
+		txtDInicial = new JSpinner();
+		txtDInicial.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		txtDInicial.setBounds(385, 21, 34, 20);
+		panel.add(txtDInicial);
+		
+		txtDFinal = new JSpinner();
+		txtDFinal.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		txtDFinal.setBounds(385, 49, 34, 20);
 		panel.add(txtDFinal);
 
 	}
+
+	public String getTxtAInicial() {
+		return txtAInicial.getText();
+	}
+
+	public String getTxtAFinal() {
+		return txtAFinal.getText();
+	}
+
+	public String getTxtMInicial() {
+		return txtMInicial.getValue().toString();
+	}
+
+	public String getTxtMFinal() {
+		return txtMFinal.getValue().toString();
+	}
+
+	public String getTxtDInicial() {
+		return txtDInicial.getValue().toString();
+	}
+
+	public String getTxtDFinal() {
+		return txtDFinal.getValue().toString();
+	}
+	
+	
 }

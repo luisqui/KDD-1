@@ -104,7 +104,7 @@ public class Controlador implements ActionListener {
             	oConexion = new conexion();
  				oImportarDAO = new ImportarDAO(oConexion);
  				
- 				String queryCrearTablas = oModelamiento.queryCrearTablas();
+ 				String queryCrearTablas = oModelamiento.cargarQuery("Resources/SentenciasSQL/BackupNew.sql");
  				oImportarDatosView.setTextAreaConsole("Creando Tablas.");
  				oImportarDAO.executeQuery(queryCrearTablas);
  				oImportarDatosView.setTextAreaConsole("Operación completada.");
