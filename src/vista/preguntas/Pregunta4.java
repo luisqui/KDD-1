@@ -1,40 +1,33 @@
 package vista.preguntas;
 
 import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 
-public class Pregunta2 extends JPanel {
+public class Pregunta4 extends JPanel {
 	private JTextField txtAInicial;
 	private JTextField txtMInicial;
 	private JTextField txtDInicial;
 	private JTextField txtAFinal;
 	private JTextField txtMFinal;
 	private JTextField txtDFinal;
-	private JTextField txtNombrePro;
 
 	/**
 	 * Create the panel.
 	 */
-	public Pregunta2() {
-		setBackground(new Color(255, 255, 255));
+	public Pregunta4() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(null, "Parametrizaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(10, 11, 446, 171);
-		add(panel_1);
-		panel_1.setLayout(null);
-		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 58, 430, 95);
-		panel_1.add(panel);
 		panel.setLayout(null);
-		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Fechas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Parametrizaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(10, 11, 430, 95);
+		add(panel);
 		
 		JLabel label = new JLabel("Fecha Inicial:");
 		label.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -99,16 +92,7 @@ public class Pregunta2 extends JPanel {
 		txtDFinal.setColumns(10);
 		txtDFinal.setBounds(385, 48, 34, 20);
 		panel.add(txtDFinal);
-		
-		JLabel lblNewLabel = new JLabel("Producto:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(10, 33, 75, 14);
-		panel_1.add(lblNewLabel);
-		
-		txtNombrePro = new JTextField();
-		txtNombrePro.setBounds(95, 32, 341, 20);
-		panel_1.add(txtNombrePro);
-		txtNombrePro.setColumns(10);
 
 	}
+
 }

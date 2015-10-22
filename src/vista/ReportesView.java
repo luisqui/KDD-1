@@ -94,9 +94,23 @@ public class ReportesView extends JFrame {
 
 	private void llenarListaPreguntas(){
 		selectPregunta.addItem("Seleccione");
-		selectPregunta.addItem("pregunta 1");
-		selectPregunta.addItem("pregunta 2");
-		selectPregunta.addItem("pregunta 3");
+		selectPregunta.addItem("¿Cuáles son las promociones que más toman los clientes?");
+		selectPregunta.addItem("Comparación de ventas con promoción y producto");
+		selectPregunta.addItem("Comparación de ventas por volumen frente a ventas por temporada");
+		selectPregunta.addItem("¿Cuál es la promoción de ventas por volumen que más seleccionan?");
+		selectPregunta.addItem("Comparativo de ventas por Internet y vendedores de la empresa");
+		selectPregunta.addItem("Nivel de ventas por año, mes, trimestre y semestre");
+		selectPregunta.addItem("Total de ventas de productos agrupados por categoría");
+		selectPregunta.addItem("Total de ventas agrupado por países");
+		selectPregunta.addItem("Monedas más usadas por los clientes en las ventas");
+		selectPregunta.addItem("Total de ventas por producto y en el tiempo");
+		selectPregunta.addItem("Perfil de los clientes que más compran por Internet");
+		selectPregunta.addItem("Productos que casi nunca se venden");
+		selectPregunta.addItem("Productos que más se demoran en inventario");
+		selectPregunta.addItem("Comparación del nivel de llamadas al call center en días laborales vs días festivos");
+		selectPregunta.addItem("Comparación de llamadas por franjas horarias en días laborales");
+		selectPregunta.addItem("Una comparación del presupuesto asignado a cada departamento de la empresa");
+		selectPregunta.addItem("¿Cuáles son las cuentas y su departamento que más dinero mueven?");
 	}
 	
 	
