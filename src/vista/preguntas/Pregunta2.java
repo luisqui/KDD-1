@@ -4,11 +4,14 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import com.mxrck.autocompleter.TextAutoCompleter;
 
 public class Pregunta2 extends JPanel {
 	private JTextField txtAInicial;
@@ -22,7 +25,7 @@ public class Pregunta2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Pregunta2() {
+	public Pregunta2(ArrayList<String> productos) {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
@@ -111,6 +114,12 @@ public class Pregunta2 extends JPanel {
 		txtNombrePro.setBounds(95, 32, 341, 20);
 		panel_1.add(txtNombrePro);
 		txtNombrePro.setColumns(10);
+
+
+		TextAutoCompleter textAutoCompleter = new TextAutoCompleter(txtNombrePro);
+		for(String str : productos){
+			textAutoCompleter.addItem(str);
+		}		
 
 	}
 	

@@ -16,6 +16,7 @@ import vista.ReportesView;
 import vista.preguntas.*;
 
 public class ControladorReportes extends ValidarDatos implements ActionListener{
+	private ArrayList<String> listaProductos;
 	private ReportesView oReportesView;
 	private ReportesDAO oReportesDAO;
 	private Modelamiento oModelo;
@@ -33,7 +34,8 @@ public class ControladorReportes extends ValidarDatos implements ActionListener{
 		
 		oModelo = new Modelamiento();
 		oReportesDAO = new ReportesDAO(new conexion());
-		
+		String query = oModelo.cargarQuery("Resources/SentenciasSQL/productos.sql");
+		listaProductos = oReportesDAO.productos(query);	
 	}
 
 	
@@ -69,7 +71,7 @@ public class ControladorReportes extends ValidarDatos implements ActionListener{
 			oReportesView.cambiarPregunta(oPregunta1);
 			break;
 		case 2:					
-			oPregunta2 = new Pregunta2();
+			oPregunta2 = new Pregunta2(listaProductos);
 			oReportesView.cambiarPregunta(oPregunta2);					
 			break;
 		case 3:

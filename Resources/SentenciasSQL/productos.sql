@@ -1,0 +1,1 @@
+SELECT "EnglishProductName" AS nombre FROM "DimProduct"

@@ -127,4 +127,35 @@ public class ReportesDAO {
 		}
 		return listPre;
 	}
+	
+	
+	public ArrayList<String> productos(String query){
+		ArrayList<String> listPro = new ArrayList<String>();
+		String producto = null;
+		PreparedStatement pst = null;
+		
+		try {
+			pst = conn.getConnection().prepareStatement(query);				
+		
+			ResultSet resultadosConsulta = pst.executeQuery();
+
+			while(resultadosConsulta.next()){
+				producto = resultadosConsulta.getString("nombre");				
+				listPro.add(producto);
+			}
+		}catch (Exception e){
+		    	e.printStackTrace();
+		}finally {
+			try {
+				if (pst != null) {
+					pst.close();
+				}
+				
+			} catch (SQLException ex) {
+				System.out.println("Error SQL:" + ex);
+				
+			}
+		}
+		return listPro;
+	}
 }
