@@ -9,15 +9,15 @@ import vista.preguntas.*;
 
 public class ControladorReportes implements ActionListener {
 	private ReportesView oReportesView;
+	private Seleccion oSeleccion0;
 	private Pregunta1 oPregunta1;
 	private Pregunta2 oPregunta2;
 	private Pregunta3 oPregunta3;
 	private Pregunta4 oPregunta4;
 	
 	public ControladorReportes(){
-		oReportesView = new ReportesView();
-		oReportesView.getBtnSelPregunta().addActionListener(this);
-		
+		oReportesView = new ReportesView();		
+		oReportesView.getSelectPregunta().addActionListener(this);
 				
 		
 	}
@@ -27,7 +27,7 @@ public class ControladorReportes implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getSource() == oReportesView.getBtnSelPregunta()){
+		if(e.getSource() == oReportesView.getSelectPregunta()){//Al cambiar de pregunta
 			int seleccion = oReportesView.getSelectPregunta().getSelectedIndex();
 			instanciarPregunta(seleccion);
 		}
@@ -37,7 +37,11 @@ public class ControladorReportes implements ActionListener {
 	
 	
 	private void instanciarPregunta(int seleccion){
-		switch (seleccion) {			
+		switch (seleccion) {
+		case 0:
+			oSeleccion0 = new Seleccion();
+			oReportesView.cambiarPregunta(oSeleccion0);
+			break;
 		case 1:
 			oPregunta1 = new Pregunta1();
 			oReportesView.cambiarPregunta(oPregunta1);

@@ -16,12 +16,13 @@ import javax.swing.JButton;
 public class ReportesView extends JFrame {
 	private JPanel panelPregunta;
 	private JComboBox selectPregunta;
-	private JButton btnSelPregunta;
+	private JButton btnConsultar;
+	private JButton btnSalir;
 
 	public ReportesView() {
 		setTitle("Reportes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 536, 365);
+		setBounds(100, 100, 536, 414);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(230, 230, 230));
@@ -48,34 +49,46 @@ public class ReportesView extends JFrame {
 		panel_1.setLayout(null);
 		
 		selectPregunta = new JComboBox();
-		selectPregunta.setBounds(10, 24, 373, 20);
+		selectPregunta.setBounds(10, 24, 500, 20);
 		panel_1.add(selectPregunta);
-		
-		btnSelPregunta = new JButton("Consultar");
-		btnSelPregunta.setBounds(421, 23, 89, 23);
-		panel_1.add(btnSelPregunta);
 		
 		JLabel lblNewLabel_1 = new JLabel("Pregunta:");
 		lblNewLabel_1.setBounds(10, 11, 63, 14);
 		panel_1.add(lblNewLabel_1);
 		
 		panelPregunta = new JPanel();
-		panelPregunta.setBounds(0, 119, 520, 208);
+		panelPregunta.setBounds(0, 119, 520, 191);
 		contentPane.add(panelPregunta);
 		panelPregunta.setLayout(null);
 		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(null);
+		panel_2.setBackground(new Color(224, 96, 97));
+		panel_2.setBounds(0, 321, 520, 55);
+		contentPane.add(panel_2);
+		
+		btnConsultar = new JButton("Consultar");
+		btnConsultar.setBounds(367, 11, 143, 33);
+		panel_2.add(btnConsultar);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.setBounds(216, 11, 143, 33);
+		panel_2.add(btnSalir);
+		
 		llenarListaPreguntas();
 		setVisible(true);
-	}	
+	}
 	
-	
-	
+		
+	public JButton getBtnConsultar() {
+		return btnConsultar;
+	}
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
 	public JComboBox getSelectPregunta() {
 		return selectPregunta;
-	}
-
-	public JButton getBtnSelPregunta() {
-		return btnSelPregunta;
 	}		
 
 	public JPanel getPanelPregunta() {
@@ -112,7 +125,4 @@ public class ReportesView extends JFrame {
 		selectPregunta.addItem("Una comparación del presupuesto asignado a cada departamento de la empresa");
 		selectPregunta.addItem("¿Cuáles son las cuentas y su departamento que más dinero mueven?");
 	}
-	
-	
-	
 }
